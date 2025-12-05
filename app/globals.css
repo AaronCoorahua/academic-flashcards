@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.625rem;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes glow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+  }
+
+  body {
+    background: linear-gradient(to bottom right, #0f172a, #581c87, #0f172a);
+    color: hsl(var(--foreground));
+    min-height: 100vh;
+    font-family: var(--font-inter), 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Glass Panel Utilities */
+.glass-panel {
+  background-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+}
+
+.glass-panel-hover {
+  background-color: rgb(255 255 255 / 0.1);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgb(255 255 255 / 0.2);
+  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  transition: all 300ms;
+}
+
+.glass-panel-hover:hover {
+  background-color: rgb(255 255 255 / 0.15);
+}
+
+/* Animated Orbs */
+.orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(96px);
+  opacity: 0.2;
+}
+
+/* Animation Utilities */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 6s ease-in-out 2s infinite;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
 }
