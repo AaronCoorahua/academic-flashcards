@@ -17,7 +17,7 @@ export default function Home() {
             Academic Flashcards
           </h1>
           <p className="text-xl text-slate-300 mb-8">
-            Estudia con estilo usando flashcards interactivas con estética Liquid Glass
+            Estudia con estilo usando flashcards interactivas
           </p>
           <div className="flex gap-4 justify-center">
             <Link href="/auth/login">
